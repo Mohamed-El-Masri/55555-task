@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GFM vs GFL Comparison</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #6a1b9a;
+      overflow-x: hidden;
+      position: relative;
+      font-family: 'Arial', sans-serif;
+      color: white;
+    }
+    header {
+      width: 100%;
+      padding: 15px 0;
+      background: #000;
+      margin-bottom: 20px;
+      position: relative;
+      text-align: center;
+    }
+    .title {
+      text-align: center;
+      font-size: 3.5rem;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      user-select: none;
+    }
+    .content {
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 30px 0;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    th {
+      background-color: rgba(0, 0, 0, 0.5);
+      font-weight: bold;
+      color: white;
+    }
+    tr:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    .star {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: twinkle 3s infinite alternate;
+    }
+    @keyframes twinkle {
+      0% { opacity: 0.7; }
+      100% { opacity: 0.2; }
+    }
+    footer {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80px;
+      background: none;
+      z-index: 10;
+    }
+    .footer-btn {
+      background: #000;
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-radius: 20px;
+      padding: 10px 40px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      user-select: none;
+    }
+    .footer-btn:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title">Investors Universe</div>
+  </header>
+  <div id="stars"></div>
+  <div class="content">
+    <h1>GFM vs GFL Features Comparison</h1>
+    <table>
+      <tr>
+        <th>Feature</th>
+        <th>GFM</th>
+        <th>GFL</th>
+      </tr>
+      <tr>
+        <td>Voltage Control</td>
+        <td>Yes (forms voltage)</td>
+        <td>No (follows grid voltage)</td>
+      </tr>
+      <tr>
+        <td>Current Control</td>
+        <td>Indirect</td>
+        <td>Yes</td>
+      </tr>
+      <tr>
+        <td>Synchronization</td>
+        <td>Droop control</td>
+        <td>PLL (Phase-Locked Loop)</td>
+      </tr>
+      <tr>
+        <td>Grid Strength Required</td>
+        <td>Can work with weak grid</td>
+        <td>Needs strong grid</td>
+      </tr>
+      <tr>
+        <td>Black Start Capability</td>
+        <td>Yes</td>
+        <td>No</td>
+      </tr>
+      <tr>
+        <td>Use Case</td>
+        <td>Microgrids, backup, islanding</td>
+        <td>Solar/wind farms, grid-connected</td>
+      </tr>
+    </table>
+  </div>
+  <footer>
+    <div class="footer-btn" onclick="goBack()">Back</div>
+  </footer>
+  <script>
+    // Draw animated stars in the background
+    const starsContainer = document.getElementById('stars');
+    for(let i=0;i<40;i++){
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random()*100+'vh';
+      star.style.left = Math.random()*100+'vw';
+      star.style.animationDelay = (Math.random()*3)+'s';
+      star.style.width = star.style.height = (Math.random()*3+2)+'px';
+      starsContainer.appendChild(star);
+    }
+    // Go back to home page
+    function goBack() {
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

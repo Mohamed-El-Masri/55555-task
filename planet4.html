@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Droop Control used by GFM Inverters</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #6a1b9a;
+      overflow-x: hidden;
+      position: relative;
+      font-family: 'Arial', sans-serif;
+      color: white;
+    }
+    header {
+      width: 100%;
+      padding: 15px 0;
+      background: #000;
+      margin-bottom: 20px;
+      position: relative;
+      text-align: center;
+    }
+    .title {
+      text-align: center;
+      font-size: 3.5rem;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+      user-select: none;
+    }
+    .content {
+      padding: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    ul {
+      margin-bottom: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+    .star {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: twinkle 3s infinite alternate;
+    }
+    @keyframes twinkle {
+      0% { opacity: 0.7; }
+      100% { opacity: 0.2; }
+    }
+    footer {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80px;
+      background: none;
+      z-index: 10;
+    }
+    .footer-btn {
+      background: #000;
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border-radius: 20px;
+      padding: 10px 40px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      user-select: none;
+    }
+    .footer-btn:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="title">Investors Universe</div>
+  </header>
+  <div id="stars"></div>
+  <div class="content">
+    <h1>Droop Control used by GFM Inverters</h1>
+    <p>Droop control is a method used by Grid-Forming (GFM) inverters to regulate frequency and voltage without needing a reference grid signal. It works similarly to how synchronous generators adjust their output in response to changes in power demand.</p>
+    <ul>
+      <li>Controls frequency based on active power: P-ω droop</li>
+      <li>Controls voltage based on reactive power: Q-V droop</li>
+      <li>Supports decentralized operation with no communication</li>
+      <li>Ideal for weak or islanded grid conditions</li>
+    </ul>
+    <p>As explained by Markovic et al., droop-based controllers in GFMs can synchronize multiple units and share power automatically, providing stability and inertia-like behavior in low-inertia systems</p>
+  </div>
+  <footer>
+    <div class="footer-btn" onclick="goBack()">Back</div>
+  </footer>
+  <script>
+    // Draw animated stars in the background
+    const starsContainer = document.getElementById('stars');
+    for(let i=0;i<40;i++){
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random()*100+'vh';
+      star.style.left = Math.random()*100+'vw';
+      star.style.animationDelay = (Math.random()*3)+'s';
+      star.style.width = star.style.height = (Math.random()*3+2)+'px';
+      starsContainer.appendChild(star);
+    }
+    // Go back to home page
+    function goBack() {
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>
